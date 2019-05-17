@@ -5,17 +5,34 @@
  */
 package examen1_miguelblancoo;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author migue
  */
 public class GUI_Principal extends javax.swing.JFrame {
 
+    private ArrayList<Usuarios> pusuarios = new ArrayList();
+
     /**
      * Creates new form GUI_Principal
      */
     public GUI_Principal() {
         initComponents();
+        pusuarios.add(new Usuarios("Diego", "111", "Administrador"));
+        pusuarios.add(new Usuarios("Carlos", "123", "Normal"));
+        pusuarios.add(new Usuarios("Miguel", "987", "Normal"));
+
+    }
+
+    public ArrayList<Usuarios> getPusuarios() {
+        return pusuarios;
+    }
+
+    public void setPusuarios(ArrayList<Usuarios> pusuarios) {
+        this.pusuarios = pusuarios;
     }
 
     /**
@@ -27,21 +44,136 @@ public class GUI_Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
+        tf_usuario = new javax.swing.JTextField();
+        pf_contrasena = new javax.swing.JPasswordField();
+        jButton2 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Examen 1");
+
+        jButton1.setText("Login");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        tf_usuario.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        tf_usuario.setText("Usuario");
+        tf_usuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tf_usuarioMouseClicked(evt);
+            }
+        });
+        tf_usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_usuarioActionPerformed(evt);
+            }
+        });
+
+        pf_contrasena.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        pf_contrasena.setText("jPasswordField1");
+        pf_contrasena.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pf_contrasenaMouseClicked(evt);
+            }
+        });
+        pf_contrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pf_contrasenaActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Registrarse");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(232, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_usuario, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pf_contrasena, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(205, Short.MAX_VALUE)
+                .addComponent(tf_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pf_contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        try {
+            String usuario = ((String) this.tf_usuario.getText());
+            String contrasena = ((String) this.pf_contrasena.getText());
+            boolean k = false;
+            Usuarios ref = new Usuarios(usuario, contrasena);
+            for (int i = 0; i < pusuarios.size(); i++) {
+                if (ref.getUsuario().equals(pusuarios.get(i).getUsuario())) {
+                    if (ref.getContrasena().equals(pusuarios.get(i).getContrasena())) {
+                        k = true;
+                        i = pusuarios.size();
+                    }
+                }
+            }
+            if (k) {
+                System.out.println("Correcto");
+                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(this, "Usuario Incorrecto");
+            }
+        } catch (Exception e) {
+
+        }
+
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void tf_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_usuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_usuarioActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        GUI_Registrarse c = new GUI_Registrarse();
+        c.setVisible(true);
+        this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void pf_contrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pf_contrasenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pf_contrasenaActionPerformed
+
+    private void tf_usuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_usuarioMouseClicked
+        tf_usuario.setText("");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_usuarioMouseClicked
+
+    private void pf_contrasenaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pf_contrasenaMouseClicked
+        pf_contrasena.setText("");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pf_contrasenaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -69,6 +201,9 @@ public class GUI_Principal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(GUI_Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -79,5 +214,10 @@ public class GUI_Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JPasswordField pf_contrasena;
+    private javax.swing.JTextField tf_usuario;
     // End of variables declaration//GEN-END:variables
+
 }
