@@ -6,7 +6,9 @@
 package examen1_miguelblancoo;
 
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,15 +17,78 @@ import javax.swing.JOptionPane;
 public class GUI_Principal extends javax.swing.JFrame {
 
     private ArrayList<Usuarios> pusuarios = new ArrayList();
+    private Inventario c = new Inventario();
+    private ArrayList<Libro> invent = new ArrayList();
 
     /**
      * Creates new form GUI_Principal
      */
     public GUI_Principal() {
         initComponents();
+
+        System.out.println(invent.size());
         pusuarios.add(new Usuarios("Diego", "111", "Administrador"));
         pusuarios.add(new Usuarios("Carlos", "123", "Normal"));
         pusuarios.add(new Usuarios("Miguel", "987", "Normal"));
+        invent.add(new Libro("Aprende a ser Feliz", "Felicidad", "Español", new Date(), "1000-0001-5555-8881", "Tomado", "11811020"));
+        invent.get(0).getAutores().add("Frank");
+        invent.get(0).getAutores().add("Mauricio");
+        invent.get(0).getEditoriales().add("Simon");
+        invent.get(0).getEditoriales().add("Holis");
+
+        invent.add(new Libro("Aprende a ser Feliz2", "Felicidad", "Español", new Date(), "1000-0001-5555-8882", "Tomado", "11811020"));
+        invent.get(1).getAutores().add("Frank");
+        invent.get(1).getAutores().add("Mauricio");
+        invent.get(1).getEditoriales().add("Simon");
+        invent.get(1).getEditoriales().add("Holis");
+
+        invent.add(new Libro("Aprende a ser Feliz3", "Felicidad", "Español", new Date(), "1200-0001-5555-8883", "Tomado", "11811020"));
+        invent.get(2).getAutores().add("Frank");
+        invent.get(2).getAutores().add("Mauricio");
+        invent.get(2).getEditoriales().add("Simon");
+        invent.get(2).getEditoriales().add("Holis");
+
+        invent.add(new Libro("Aprende a ser Feliz4", "Felicidad", "Español", new Date(), "1200-0001-5555-8884", "Tomado", "11811020"));
+        invent.get(3).getAutores().add("Frank");
+        invent.get(3).getAutores().add("Mauricio");
+        invent.get(3).getEditoriales().add("Simon");
+        invent.get(3).getEditoriales().add("Holis");
+        
+        invent.add(new Libro("Aprende a ser Feliz5", "Felicidad", "Español", new Date(), "1440-0001-5555-8885", "Tomado", "11811020"));
+        invent.get(4).getAutores().add("Frank");
+        invent.get(4).getAutores().add("Mauricio");
+        invent.get(4).getEditoriales().add("Simon");
+        invent.get(4).getEditoriales().add("Holis");
+        
+        invent.add(new Libro("Aprende a ser Feliz6", "Felicidad", "Español", new Date(), "1000-0001-5555-8886", "Tomado", "11811020"));
+        invent.get(5).getAutores().add("Frank");
+        invent.get(5).getAutores().add("Mauricio");
+        invent.get(5).getEditoriales().add("Simon");
+        invent.get(5).getEditoriales().add("Holis");
+        
+        invent.add(new Libro("Aprende a ser Feliz7", "Felicidad", "Español", new Date(), "1000-0001-5555-8887", "Tomado", "11811020"));
+        invent.get(6).getAutores().add("Frank");
+        invent.get(6).getAutores().add("Mauricio");
+        invent.get(6).getEditoriales().add("Simon");
+        invent.get(6).getEditoriales().add("Holis");
+        
+        invent.add(new Libro("Aprende a ser Feliz8", "Felicidad", "Español", new Date(), "1000-0001-5555-8888", "Tomado", "11811020"));
+        invent.get(7).getAutores().add("Frank");
+        invent.get(7).getAutores().add("Mauricio");
+        invent.get(7).getEditoriales().add("Simon");
+        invent.get(7).getEditoriales().add("Holis");
+        
+        invent.add(new Libro("Aprende a ser Feliz9", "Felicidad", "Español", new Date(), "1000-0001-5555-8889", "Tomado", "11811020"));
+        invent.get(8).getAutores().add("Frank");
+        invent.get(8).getAutores().add("Mauricio");
+        invent.get(8).getEditoriales().add("Simon");
+        invent.get(8).getEditoriales().add("Holis");
+        
+        invent.add(new Libro("Aprende a ser Feliz10", "Felicidad", "Español", new Date(), "1000-0001-5555-88810", "Tomado", "11811020"));
+        invent.get(9).getAutores().add("Frank");
+        invent.get(9).getAutores().add("Mauricio");
+        invent.get(9).getEditoriales().add("Simon");
+        invent.get(9).getEditoriales().add("Holis");
 
     }
 
@@ -44,10 +109,120 @@ public class GUI_Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        General = new javax.swing.JScrollPane();
+        tabla1 = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         tf_usuario = new javax.swing.JTextField();
         pf_contrasena = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
+
+        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane1StateChanged(evt);
+            }
+        });
+
+        tabla1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Autores", "Titulo", "Genero", "Editoriales", "Idioma", "Fecha", "ISBN", "Ingreso", "Estado", "Numero Cuenta"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        General.setViewportView(tabla1);
+
+        jTabbedPane1.addTab("Listado", General);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 992, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 453, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Eliminar", jPanel1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 992, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 453, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Crear", jPanel2);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 992, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 453, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Busqueda", jPanel3);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 992, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 453, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Prestamo", jPanel4);
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 997, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Examen 1");
@@ -139,8 +314,24 @@ public class GUI_Principal extends javax.swing.JFrame {
                 }
             }
             if (k) {
-                System.out.println("Correcto");
-                this.setVisible(false);
+                System.out.println("Correcto1");
+                jDialog1.pack();
+                jDialog1.setVisible(true);
+                for (int i = 0; i < invent.size(); i++) {
+                    Object[] newrow = {invent.get(i).getAutores().get(0),
+                        invent.get(i).getTitulo(),
+                        invent.get(i).getGenero(),
+                        invent.get(i).getEditoriales().get(0),
+                        invent.get(i).getIdioma(),
+                        invent.get(i).getFecha().getYear(),
+                        invent.get(i).getIsbn(),
+                        invent.get(i).getIngreso(),
+                        invent.get(i).getEstado(),
+                        invent.get(i).getNumcuenta()};
+                    DefaultTableModel modelo = (DefaultTableModel) tabla1.getModel();
+                    modelo.addRow(newrow);
+                    tabla1.setModel(modelo);
+                }
             } else {
                 JOptionPane.showMessageDialog(this, "Usuario Incorrecto");
             }
@@ -174,6 +365,27 @@ public class GUI_Principal extends javax.swing.JFrame {
         pf_contrasena.setText("");
         // TODO add your handling code here:
     }//GEN-LAST:event_pf_contrasenaMouseClicked
+
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+        if (invent != null) {
+            for (int i = 0; i < invent.size(); i++) {
+                Object[] newrow = {invent.get(i).getAutores().get(0),
+                    invent.get(i).getTitulo(),
+                    invent.get(i).getGenero(),
+                    invent.get(i).getEditoriales().get(0),
+                    invent.get(i).getIdioma(),
+                    invent.get(i).getFecha().getYear(),
+                    invent.get(i).getIsbn(),
+                    invent.get(i).getIngreso(),
+                    invent.get(i).getEstado(),
+                    invent.get(i).getNumcuenta()};
+                DefaultTableModel modelo = (DefaultTableModel) tabla1.getModel();
+                modelo.addRow(newrow);
+                tabla1.setModel(modelo);
+            }
+        }
+
+    }//GEN-LAST:event_jTabbedPane1StateChanged
 
     /**
      * @param args the command line arguments
@@ -214,9 +426,17 @@ public class GUI_Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane General;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPasswordField pf_contrasena;
+    private javax.swing.JTable tabla1;
     private javax.swing.JTextField tf_usuario;
     // End of variables declaration//GEN-END:variables
 

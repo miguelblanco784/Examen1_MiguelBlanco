@@ -5,18 +5,25 @@
  */
 package examen1_miguelblancoo;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author migue
  */
 public class Administrador extends javax.swing.JFrame {
+
     Inventario c = new Inventario();
-    c.getLibros();
+    ArrayList<Libro> invent;
+
     /**
      * Creates new form Administrador
      */
     public Administrador() {
         initComponents();
+        invent = c.getLibros();
+
     }
 
     /**
@@ -29,8 +36,8 @@ public class Administrador extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        General = new javax.swing.JScrollPane();
+        tabla1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -44,7 +51,7 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -67,9 +74,9 @@ public class Administrador extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        General.setViewportView(tabla1);
 
-        jTabbedPane1.addTab("Listado", jScrollPane1);
+        jTabbedPane1.addTab("Listado", General);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -144,8 +151,22 @@ public class Administrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
-        
-        // TODO add your handling code here:
+        for (int i = 0; i < invent.size(); i++) {
+            Object[] newrow = {invent.get(i).getAutores().get(0),
+                invent.get(i).getTitulo(),
+                invent.get(i).getGenero(),
+                invent.get(i).getEditoriales().get(0),
+                invent.get(i).getIdioma(),
+                invent.get(i).getFecha().getYear(),
+                invent.get(i).getIsbn(),
+                invent.get(i).getIngreso(),
+                invent.get(i).getEstado(),
+                invent.get(i).getNumcuenta()};
+            DefaultTableModel modelo = (DefaultTableModel) tabla1.getModel();
+            modelo.addRow(newrow);
+            tabla1.setModel(modelo);
+        }
+
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
     /**
@@ -184,12 +205,12 @@ public class Administrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane General;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabla1;
     // End of variables declaration//GEN-END:variables
 }
