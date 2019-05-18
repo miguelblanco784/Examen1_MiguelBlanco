@@ -125,7 +125,6 @@ public class GUI_Principal extends javax.swing.JFrame {
         text3 = new javax.swing.JTextField();
         text5 = new javax.swing.JTextField();
         fecha = new com.toedter.calendar.JDateChooser();
-        text6 = new javax.swing.JTextField();
         text7 = new javax.swing.JTextField();
         text8 = new javax.swing.JTextField();
         text9 = new javax.swing.JTextField();
@@ -140,6 +139,7 @@ public class GUI_Principal extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        text6 = new javax.swing.JFormattedTextField();
         jPanel3 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
         tf_buscar = new javax.swing.JTextField();
@@ -279,13 +279,6 @@ public class GUI_Principal extends javax.swing.JFrame {
 
         text5.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
 
-        text6.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        text6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                text6ActionPerformed(evt);
-            }
-        });
-
         text7.setEditable(false);
         text7.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         text7.setText("El tiempo sera ahorita");
@@ -331,6 +324,12 @@ public class GUI_Principal extends javax.swing.JFrame {
             }
         });
 
+        try {
+            text6.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####-####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -355,10 +354,10 @@ public class GUI_Principal extends javax.swing.JFrame {
                     .addComponent(text3)
                     .addComponent(fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(text5)
-                    .addComponent(text6)
                     .addComponent(text7)
                     .addComponent(text8)
-                    .addComponent(text9))
+                    .addComponent(text9)
+                    .addComponent(text6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 558, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -393,8 +392,8 @@ public class GUI_Principal extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(text6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addComponent(text6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(text7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -407,7 +406,7 @@ public class GUI_Principal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(text9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -822,10 +821,6 @@ public class GUI_Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_eliminarMouseClicked
 
-    private void text6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_text6ActionPerformed
-
     private void text8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_text8ActionPerformed
@@ -958,7 +953,7 @@ public class GUI_Principal extends javax.swing.JFrame {
     private javax.swing.JTextField text3;
     private javax.swing.JTextArea text4;
     private javax.swing.JTextField text5;
-    private javax.swing.JTextField text6;
+    private javax.swing.JFormattedTextField text6;
     private javax.swing.JTextField text7;
     private javax.swing.JTextField text8;
     private javax.swing.JTextField text9;
