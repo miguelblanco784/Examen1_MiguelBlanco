@@ -327,9 +327,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="12" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="&quot;El dia sera el de Ahorita&quot;)" type="code"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="El tiempo sera ahorita"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="text8">
