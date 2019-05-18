@@ -1,11 +1,13 @@
 package examen1_miguelblancoo;
 
+import java.util.ArrayList;
+
 public class Usuarios {
 
     String usuario;
     String contrasena;
     String poder;
-
+    ArrayList libros = new ArrayList();
 
     public Usuarios(String usuario, String contrasena) {
         this.usuario = usuario;
